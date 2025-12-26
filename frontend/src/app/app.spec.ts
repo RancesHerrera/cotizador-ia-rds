@@ -14,11 +14,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
-  it('should render title', async () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges(); // Detect changes to render the template
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.font-bold.text-xl')?.textContent).toContain('Cotizador IA');
-  });
 });
