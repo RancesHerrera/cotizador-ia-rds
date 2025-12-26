@@ -1,0 +1,49 @@
+<div class="flex h-screen bg-gray-100 font-sans">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r border-gray-200 flex flex-col fixed inset-y-0 left-0 z-50">
+        <!-- Logo / Brand -->
+        <div class="h-16 flex items-center px-6 border-b border-gray-100">
+            <div class="font-bold text-xl text-blue-600 flex items-center gap-2">
+                <span>🚀</span> Cotizador IA
+            </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+            <a routerLink="/home" routerLinkActive="bg-blue-50 text-blue-600"
+                class="flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg hover:bg-gray-50 hover:text-blue-600 transition-colors group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                <span class="font-medium">Inicio</span>
+            </a>
+
+            <a routerLink="/quote/new" routerLinkActive="bg-blue-50 text-blue-600"
+                class="flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg hover:bg-gray-50 hover:text-blue-600 transition-colors group">
+                <span>📝</span>
+                <span class="font-medium">Nueva Cotización</span>
+            </a>
+
+            <a routerLink="/settings" routerLinkActive="bg-blue-50 text-blue-600"
+                class="flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg hover:bg-gray-50 hover:text-blue-600 transition-colors group">
+                <span>⚙️</span>
+                <span class="font-medium">Configuración</span>
+            </a>
+        </nav>
+
+        <!-- User Info / Bottom Section (Optional placeholder) -->
+        <div class="p-4 border-t border-gray-100">
+            <!-- Content here if needed -->
+        </div>
+    </aside>
+
+    <!-- Main Content Wrapper -->
+    <div class="flex-1 ml-64 flex flex-col h-screen overflow-hidden">
+        <!-- Main Content Area -->
+        <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>
