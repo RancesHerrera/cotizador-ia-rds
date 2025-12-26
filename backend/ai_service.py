@@ -10,10 +10,13 @@ import models, schemas, crud
 load_dotenv()
 
 # OpenAI Client Configuration (Compatible with OpenRouter)
-client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY"),
-    base_url=os.getenv("OPENAI_BASE_URL")  # Use https://openrouter.ai/api/v1 for OpenRouter
-)
+api_key = os.getenv("OPENAI_API_KEY")
+client = None
+if api_key:
+    client = OpenAI(
+        api_key=api_key,
+        base_url=os.getenv("OPENAI_BASE_URL")  # Use https://openrouter.ai/api/v1 for OpenRouter
+    )
 DEFAULT_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
 class AIService:
@@ -66,8 +69,8 @@ class AIService:
         """
 
         try:
-            if not os.getenv("OPENAI_API_KEY"):
-                 raise ValueError("Falta OPENAI_API_KEY en el archivo .env")
+            if not client:
+                raise ValueError("Cliente OpenAI no inicializado. Verifica OPENAI_API_KEY.")
 
             response = client.chat.completions.create(
                 model=DEFAULT_MODEL,
